@@ -1,0 +1,19 @@
+<!--
+    POST 요청을 하는 코드
+    데이터를 담아 서버로 보내는 경우
+-->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    (async () => {
+        try {
+            const result = await axios.post('https://www.zerocho.com/api/post/json', {
+                name : 'jooo',
+                birth : 2000,
+            });
+            console.log(result);
+            console.log(result.data);   // {}
+        } catch (error) {
+            console.error(error);
+        }
+    })();
+</script>

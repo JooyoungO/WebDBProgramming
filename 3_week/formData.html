@@ -1,0 +1,28 @@
+<!--
+    FormData POST 요청으로 보내기
+-->
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    (async () => {
+        try {
+            const formData = new FormData();
+            formData.append('name', 'joooo');
+            formData.append('birth', 2000);
+            const result = await axios.post('https://www.zerocho.com/api/post/formdata', 
+            formData);
+            console.log(result);
+            console.log(result.data);
+        } catch (error) {
+            console.error(error);
+        }
+    })();
+</script>
+
+<!--
+    encodeURIComponent
+    -> 주소 창에 한글을 입력하면 에러 발생
+    -> (`https://www.zerocho.com/api/search/${ecodeURIComponent('한글한글')}`)
+
+    decodeURIComponent 로 서버에서 한글 해석
+-->
