@@ -41,10 +41,9 @@ if(isMainThread) {
         });
         worker.on('exit', () => {
             threads.delete(worker);
-            if(threads.size === 0) {
                 console.timeEnd('prime');
                 console.log(primes.length);
-            }
+            
         });
         worker.on('message', (msg) => {
             primes = primes.concat(msg);
